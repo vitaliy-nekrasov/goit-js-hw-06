@@ -7,4 +7,8 @@ function onInputValid(event) {
   if (event.currentTarget.value.length == inputEl.dataset.length) {
     inputEl.classList.replace('invalid', 'valid');
   }
+  if (event.currentTarget.value === '') {
+    inputEl.classList.remove('invalid');
+    inputEl.classList.remove('valid');
+  }
 }
