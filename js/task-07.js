@@ -3,8 +3,10 @@ const refs = {
   textEl: document.querySelector('#text'),
 };
 
-refs.inputEl.addEventListener('input', onInputChange);
+const { inputEl, textEl } = refs;
+
+inputEl.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
-  refs.textEl.style = `font-size: ${event.currentTarget.value}px`;
+  textEl.style = `font-size: ${event.currentTarget.value}px`;
 }
