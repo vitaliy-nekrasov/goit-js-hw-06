@@ -1,23 +1,28 @@
-const refs = {
-  formEl: document.querySelector('.login-form'),
-  inputMailEl: document.querySelector('[type=email]'),
-  inputPasswordEl: document.querySelector('[type=password]'),
-  buttonEl: document.querySelector('button'),
-};
+const formEl = document.querySelector('.login-form');
 
-refs.formEl.addEventListener('submit', onFormSubmit);
+formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
 
-  if (event.currentTarget.elements[0].value === '') {
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
+
+  if (email.value === '' || password.value === '') {
     alert('Все поля должны быть заполнены');
   }
+
+  const objKeyEmail = email.name;
+  const objKeyPass = password.name;
+
+  const result = {
+    [objKeyEmail]: email.value,
+    [objKeyPass]: password.value,
+  };
+
+  if (email.value !== '' && password.value !== '') {
+    console.log(result);
+    formEl.reset();
+  }
 }
-
-// if (refs.inputPasswordEl.textContent === '') {
-//   alert('Все поля должны быть заполнены');
-// }
-
-// console.log(event);
-// console.log(event.currentTarget.elements[0].value);
