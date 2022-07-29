@@ -4,7 +4,7 @@ inputEl.addEventListener('blur', onInputValid);
 
 function onInputValid(event) {
   inputEl.classList.add('invalid');
-  if (event.currentTarget.value.length == inputEl.dataset.length) {
+  if (event.currentTarget.value.length === Number(inputEl.dataset.length)) {
     inputEl.classList.replace('invalid', 'valid');
   }
   if (event.currentTarget.value === '') {

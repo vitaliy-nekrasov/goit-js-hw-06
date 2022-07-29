@@ -10,7 +10,7 @@ function onFormSubmit(event) {
   } = event.currentTarget;
 
   if (email.value === '' || password.value === '') {
-    alert('Все поля должны быть заполнены');
+    return alert('Все поля должны быть заполнены');
   }
 
   const objKeyEmail = email.name;
@@ -20,9 +20,6 @@ function onFormSubmit(event) {
     [objKeyEmail]: email.value,
     [objKeyPass]: password.value,
   };
-
-  if (email.value !== '' && password.value !== '') {
-    console.log(result);
-    formEl.reset();
-  }
+  formEl.reset();
+  console.log(result);
 }
